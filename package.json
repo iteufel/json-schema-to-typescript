@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "npm run lint && npm run clean && npm run build:browser && npm run build:server",
-    "build:browser": "browserify src/index.ts -s jstt -p tsify > dist/bundle.js",
+    "build:browser": "tsc && browserify dist/src/index.js -p esmify > dist/bundle.js",
     "build:server": "tsc -d",
     "clean": "shx rm -rf dist && mkdir dist",
     "format": "prettier \"{src,test}/*.ts\" --write",
@@ -81,6 +81,7 @@
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "esmify": "^2.1.1",
     "rimraf": "^3.0.2",
     "shx": "^0.3.4",
     "tsify": "^5.0.4",
